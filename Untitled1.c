@@ -85,18 +85,21 @@ int main(){
 	TipoPostoTrabalho postosTrabalho[120];
 	TipoPostoTrabalho postoTrabalho;
 	TipoComponente componentesPorApagar[120];
+	TipoEmpresa empresas[120];
+	TipoEmpresa empresa;
 
 	int tamanho=sizeof(funcionarios)/sizeof(funcionarios[0]);
 	int tamanhoComponente=sizeof(componentes)/sizeof(componentes[0]);
 	int tamanhoPostoTrabalho=sizeof(postosTrabalho)/sizeof(postosTrabalho[0]);
+	int tamanhoEmpresa=sizeof(empresas)/sizeof(empresas[0]);
 
 	
 
-	int tamanho1,escolhaTipoComponente=0,escolhaCondicaoComponente=0,escolhaConsultaComponente=0,escolhaCampoComponente=0,escolhaCampoPosto=0,encontradoPostoTrabalho=0,quantidadePostoComponententesApagar=0,resApagarPosto=0;
-	char consulta[TAMANHOCHAR],numeroSerieConsulta[TAMANHOCHAR],dataAquisicaoConsulta[TAMANHOCHAR],garantiaConsulta[TAMANHOCHAR],postoTrabalhoConsulta[TAMANHOCHAR];
+	int tamanho1,escolhaTipoComponente=0,escolhaCondicaoComponente=0,escolhaConsultaComponente=0,escolhaCampoComponente=0,escolhaCampoPosto=0,encontradoPostoTrabalho=0,quantidadePostoComponententesApagar=0,resApagarPosto=0,escolhaTipoEmpresa=0,i=0,encontradoEmpresa=0,empresaId=0,escolhaCampoEmpresa=0;
+	char consulta[TAMANHOCHAR],numeroSerieConsulta[TAMANHOCHAR],dataAquisicaoConsulta[TAMANHOCHAR],garantiaConsulta[TAMANHOCHAR],postoTrabalhoConsulta[TAMANHOCHAR],empresaConsulta[TAMANHOCHAR];
 	
 	while (n3==1){
-		printf("\n1-Componentes\n2-Funcionáros\n3-Posto De Trabalho\n4-Operações\n5-Sair\n");
+		printf("\n1-Componentes\n2-FuncionÃ¡ros\n3-Posto De Trabalho\n4-OperaÃ§Ãµes\n5-Empresas\n6-Sair\n");
 		
 				scanf("%d",&n1);
 		switch(n1){
@@ -149,7 +152,7 @@ int main(){
 
 							
 						if(escolhaTipoComponente==0 || escolhaTipoComponente>7){
-							printf("opcao digitada incorreta\nDigite outra opção correta");
+							printf("opcao digitada incorreta\nDigite outra opï¿½ï¿½o correta");
 							
 						}
 						else{
@@ -187,7 +190,7 @@ int main(){
 						while(escolhaCondicaoComponente==0 || escolhaCondicaoComponente>2){
 							scanf("%d",&escolhaCondicaoComponente);
 							if(escolhaCondicaoComponente==0 || escolhaCondicaoComponente>2){
-								printf("opcao digitada incorreta\nDigite outra opção correta");
+								printf("opcao digitada incorreta\nDigite outra opï¿½ï¿½o correta");
 							}
 							else{
 								switch(escolhaCondicaoComponente){
@@ -228,7 +231,7 @@ int main(){
 			
 							}
 							if(condicaoPostoId==0){
-								printf("id digitado inválido.Digite outro id novamente:\n");
+								printf("id digitado invï¿½lido.Digite outro id novamente:\n");
 
 							}
 						}}
@@ -276,7 +279,7 @@ int main(){
 			
 										
 									if(escolhaTipoComponente==0 || escolhaTipoComponente>7){
-										printf("opcao digitada incorreta\nDigite outra opção correta");
+										printf("opcao digitada incorreta\nDigite outra opï¿½ï¿½o correta");
 										
 									}
 									else{
@@ -369,7 +372,7 @@ int main(){
 			
 										}}
 										if(condicaoPostoId==0){
-										printf("id digitado inválido.Digite outro id novamente:\n");
+										printf("id digitado invï¿½lido.Digite outro id novamente:\n");
 										}else{
 										
 									
@@ -392,7 +395,7 @@ int main(){
 						break;
 									
 						case 4:
-						//devo listar os funcionários no momento da edição para pooder ser escolhido o id do funcionário para o edit
+						//devo listar os funcionï¿½rios no momento da ediï¿½ï¿½o para pooder ser escolhido o id do funcionï¿½rio para o edit
 						printf("listando Componentes:\n ");
 							printf("Id..........|Designacao..........|NumeroSerie...........|DataAquisicao..............|garantia................|Tipo...............|Condicao................|Observacoes...............|Status...................|\n");
 
@@ -416,7 +419,7 @@ int main(){
 			
 										
 									if(escolhaCampoComponente==0 || escolhaCampoComponente>9){
-										printf("opcao digitada incorreta\nDigite outra opção correta");
+										printf("opcao digitada incorreta\nDigite outra opï¿½ï¿½o correta");
 										
 									}
 									else{
@@ -451,7 +454,7 @@ int main(){
 						
 													
 												if(escolhaTipoComponente==0 || escolhaTipoComponente>7){
-													printf("opcao digitada incorreta\nDigite outra opção correta");
+													printf("opcao digitada incorreta\nDigite outra opï¿½ï¿½o correta");
 													
 												}
 												else{
@@ -491,7 +494,7 @@ int main(){
 												while(escolhaCondicaoComponente==0 || escolhaCondicaoComponente>2){
 													scanf("%d",&escolhaCondicaoComponente);
 													if(escolhaCondicaoComponente==0 || escolhaCondicaoComponente>2){
-														printf("opcao digitada incorreta\nDigite outra opção correta");
+														printf("opcao digitada incorreta\nDigite outra opï¿½ï¿½o correta");
 													}
 													else{
 														switch(escolhaCondicaoComponente){
@@ -544,7 +547,7 @@ int main(){
 					
 												}}
 												if(condicaoPostoId==0){
-												printf("id digitado inválido.Digite outro id novamente:\n");
+												printf("id digitado invï¿½lido.Digite outro id novamente:\n");
 												}
 											
 											
@@ -599,11 +602,11 @@ int main(){
 					scanf("%d",&n2);
 					switch(n2){
 						case 1:
-							printf("listando funcionários:\n");
-							printf("Id..........|Nome..........|Funçao...........|Descricao..............|\n");
+							printf("listando funcionï¿½rios:\n");
+							printf("Id..........|Nome..........|Funï¿½ao...........|Descricao..............|\n");
 
 							for  (int i=0;i<tamanho;i++){
-							//cabeçalho Da Tabela
+							//cabeï¿½alho Da Tabela
 							if(funcionarios[i].nome[0] == '\0'){
 								i=tamanho;
 
@@ -616,13 +619,13 @@ int main(){
 							break;
 						case 2:
 						printf("criar\n");
-						printf("digite o nome do funcionário:\n");
+						printf("digite o nome do funcionï¿½rio:\n");
 						fflush(stdin);
 						gets(funcionario.nome);
-						printf("digite a funcao do funcionário:\n");
+						printf("digite a funcao do funcionï¿½rio:\n");
 						fflush(stdin);
 						gets(funcionario.funcao);
-						printf("digite a descricao do funcionário:\n");
+						printf("digite a descricao do funcionï¿½rio:\n");
 						fflush(stdin);
 						gets(funcionario.descricao);
 						tamanho1 = 0;
@@ -666,12 +669,12 @@ int main(){
 						
 						break;			
 						case 4:
-						//devo listar os funcionários no momento da edição para pooder ser escolhido o id do funcionário para o edit
-						printf("listando funcionários:\n");
-						printf("Id..........|Nome..........|Funçao...........|Descricao..............|\n");
+						//devo listar os funcionï¿½rios no momento da ediï¿½ï¿½o para pooder ser escolhido o id do funcionï¿½rio para o edit
+						printf("listando funcionï¿½rios:\n");
+						printf("Id..........|Nome..........|Funï¿½ao...........|Descricao..............|\n");
 
 						for  (int i=0;i<tamanho;i++){
-							//cabeçalho Da Tabela
+							//cabeï¿½alho Da Tabela
 							if(funcionarios[i].nome[0] == '\0'){
 								i=tamanho;
 
@@ -680,11 +683,11 @@ int main(){
 							
 							printf("%d|%s|%s|%s\n",i,funcionarios[i].nome,funcionarios[i].funcao,funcionarios[i].descricao);
 							}
-						printf("qual funcionário deseja  editar?(id)");
+						printf("qual funcionï¿½rio deseja  editar?(id)");
 						scanf("%d",&funcionarioId);
-						printf("Id..........|1-Nome..........|2-Funçao...........|3-Descricao..............|\n");
+						printf("Id..........|1-Nome..........|2-Funï¿½ao...........|3-Descricao..............|\n");
 						printf("%d|%s|%s|%s\n",funcionarioId,funcionarios[funcionarioId].nome,funcionarios[funcionarioId].funcao,funcionarios[funcionarioId].descricao);
-						printf("Qual Campo deseja alterar do funcionário %s ?\n",funcionarios[funcionarioId].nome);
+						printf("Qual Campo deseja alterar do funcionï¿½rio %s ?\n",funcionarios[funcionarioId].nome);
 						scanf("%d",&campo);
 						switch(campo){
 							case 1:
@@ -712,12 +715,12 @@ int main(){
 						
 						break;	
 						case 5:
-							//devo listar os funcionários no momento da edição para pooder ser escolhido o id do funcionário para o edit
-						printf("listando funcionários:\n");
-						printf("Id..........|Nome..........|Funçao...........|Descricao..............|\n");
+							//devo listar os funcionï¿½rios no momento da ediï¿½ï¿½o para pooder ser escolhido o id do funcionï¿½rio para o edit
+						printf("listando funcionï¿½rios:\n");
+						printf("Id..........|Nome..........|Funï¿½ao...........|Descricao..............|\n");
 
 						for  (int i=0;i<tamanho;i++){
-							//cabeçalho Da Tabela
+							//cabeï¿½alho Da Tabela
 							if(funcionarios[i].nome[0] == '\0'){
 								i=tamanho;
 
@@ -726,10 +729,10 @@ int main(){
 							
 							printf("%d|%s|%s|%s\n",i,funcionarios[i].nome,funcionarios[i].funcao,funcionarios[i].descricao);
 							}
-						printf("qual funcionário deseja  excluir?(id)");
+						printf("qual funcionï¿½rio deseja  excluir?(id)");
 						scanf("%d",&funcionarioId);
 						for  (int i=funcionarioId;i<tamanho-1;i++){
-							//cabeçalho Da Tabela
+							//cabeï¿½alho Da Tabela
 							
 							funcionarios[i]=funcionarios[i+1];
 							
@@ -780,11 +783,11 @@ int main(){
 						printf("digite uma descricao para o posto :\n");
 						fflush(stdin);
 						gets(postoTrabalho.descricao);
-						printf("listando funcionários:\n");
-							printf("Id..........|Nome..........|Funçao...........|Descricao..............|\n");
+						printf("listando funcionï¿½rios:\n");
+							printf("Id..........|Nome..........|Funï¿½ao...........|Descricao..............|\n");
 
 							for  (int i=0;i<tamanho;i++){
-							//cabeçalho Da Tabela
+							//cabeï¿½alho Da Tabela
 							if(funcionarios[i].nome[0] == '\0'){
 								i=tamanho;	
 							}
@@ -796,7 +799,7 @@ int main(){
 						while(condicaoFuncionarioId==0){
 								scanf("%d",&funcionarioId);
 								for  (int i=0;i<tamanho;i++){
-									//cabeçalho Da Tabela
+									//cabeï¿½alho Da Tabela
 									if(funcionarios[i].id == funcionarioId){
 										condicaoFuncionarioId=1;
 										postoTrabalho.funcionario=funcionarios[i];
@@ -844,7 +847,7 @@ int main(){
 						}
 						break;			
 						case 4:
-						//devo listar os funcionários no momento da edição para pooder ser escolhido o id do funcionário para o edit
+						//devo listar os funcionï¿½rios no momento da ediï¿½ï¿½o para pooder ser escolhido o id do funcionï¿½rio para o edit
 						printf("listando postos de trabalho");
 							printf("Id..........|1-Nome..........|2-Local...........|3-Seccao..............|4-Descricao......................|5-FuncionarioResponsavel(Id)\n");
 
@@ -894,17 +897,17 @@ int main(){
 									gets(postosTrabalho[postoTrabalhoId].seccao);
 									break;
 								case 4:
-									printf("digite uma nova descrição para o posto de trabalho:");
+									printf("digite uma nova descriï¿½ï¿½o para o posto de trabalho:");
 									fflush(stdin);
 
 									gets(postosTrabalho[postoTrabalhoId].descricao);
 									break;
 								case 5:
-									printf("listando funcionários:\n");
-									printf("Id..........|Nome..........|Funçao...........|Descricao..............|\n");
+									printf("listando funcionï¿½rios:\n");
+									printf("Id..........|Nome..........|Funï¿½ao...........|Descricao..............|\n");
 		
 									for  (int i=0;i<tamanho;i++){
-									//cabeçalho Da Tabela
+									//cabeï¿½alho Da Tabela
 									if(funcionarios[i].nome[0] == '\0'){
 										i=tamanho;	
 									}
@@ -912,11 +915,11 @@ int main(){
 									printf("%d|%s|%s|%s\n",i,funcionarios[i].nome,funcionarios[i].funcao,funcionarios[i].descricao);
 									
 								}
-								printf("Qual funcionario será o novo responsavel pelo posto %s?:\n",postosTrabalho[postoTrabalhoId].nome);
+								printf("Qual funcionario serï¿½ o novo responsavel pelo posto %s?:\n",postosTrabalho[postoTrabalhoId].nome);
 								while(condicaoFuncionarioId==0){
 										scanf("%d",&funcionarioId);
 										for  (int i=0;i<tamanho;i++){
-											//cabeçalho Da Tabela
+											//cabeï¿½alho Da Tabela
 											if(funcionarios[i].id == funcionarioId){
 												condicaoFuncionarioId=1;
 												postosTrabalho[postoTrabalhoId].funcionario=funcionarios[i];
@@ -967,7 +970,7 @@ int main(){
 									quantidadePostoComponententesApagar++;
 								}
 							}
-							printf("O posto de trabalho %s tem %d componentes associados a ele, deseja excluir o posto de trabalho e os componentes associados a ele?(1)Sim(2)Não\n",postosTrabalho[postoTrabalhoId].nome,quantidadePostoComponententesApagar);
+							printf("O posto de trabalho %s tem %d componentes associados a ele, deseja excluir o posto de trabalho e os componentes associados a ele?(1)Sim(2)Nï¿½o\n",postosTrabalho[postoTrabalhoId].nome,quantidadePostoComponententesApagar);
 							scanf("%d",&resApagarPosto);
 							if(resApagarPosto==1){
 								for(int i=0;i<quantidadePostoComponententesApagar;i++){
@@ -1004,7 +1007,7 @@ int main(){
 					scanf("%d",&n2);
 					switch(n2){
 						case 1:
-							printf("listando operações ");
+							printf("listando operaï¿½ï¿½es ");
 							break;
 						case 2:
 						printf("criar");
@@ -1013,11 +1016,11 @@ int main(){
 						printf("digite o nome para a consulta");
 						break;			
 						case 4:
-						//devo listar os funcionários no momento da edição para pooder ser escolhido o id do funcionário para o edit
-						printf("qual operação deseja  editar?");
+						//devo listar os funcionï¿½rios no momento da ediï¿½ï¿½o para pooder ser escolhido o id do funcionï¿½rio para o edit
+						printf("qual operaï¿½ï¿½o deseja  editar?");
 						break;	
 						case 5:
-							printf("qual operação deseja excluir");
+							printf("qual operaï¿½ï¿½o deseja excluir");
 							break;
 							
 						case 6:
@@ -1030,6 +1033,170 @@ int main(){
 					}
 					break;
 				case 5:
+					printf("1-listar\n2-Criar\n3-Pesquisar\n4-Editar\n5-Excluir\n6-Voltar");
+					scanf("%d",&n2);
+					switch(n2){
+						case 1:
+							printf("listando empresas ");
+							break;
+						case 2:
+							printf("criar\n");
+							printf("digite o nome da empresa:\n");
+							fflush(stdin);
+							gets(empresa.nome);
+							printf("digite o contacto da empresa:\n");
+							fflush(stdin);
+							gets(empresa.contacto);	
+							//FORNECEDOR, FABRICANTE, RECICLAGEM, AGENCIA
+							printf("Digite que tipo de empresa Ã© (1)Fornecedor(2)Fabricante(3)Reciclagem(4)Agencia:\n");
+							while(escolhaTipoEmpresa==0 || escolhaTipoEmpresa>4){
+								scanf("%d",&escolhaTipoEmpresa);
+								if(escolhaTipoEmpresa==0 || escolhaTipoEmpresa>4){
+									printf("opcao digitada incorreta\nDigite outra opÃ§Ã£o correta");
+								}
+								else{
+									switch(escolhaTipoEmpresa){
+										case 1:
+											empresa.tipo=FORNECEDOR;
+											break;
+										case 2:
+											empresa.tipo=FABRICANTE;
+											break;
+										case 3:
+											empresa.tipo=RECICLAGEM;
+											break;
+										case 4:
+											empresa.tipo=AGENCIA;
+											break;
+										
+
+									}
+								}
+							}
+							for(i=0;i<tamanhoEmpresa;i++){
+								if(empresas[i].nome[0] == '\0'){
+									empresas[i]=empresa;
+									i=tamanhoEmpresa;
+								}
+							}
+
+							break;
+						case 3:
+							printf("digite o nome para a consulta");
+							fflush(stdin);
+							gets(empresaConsulta);
+							for  (int i=0;i<tamanhoEmpresa;i++){
+								if(empresas[0].nome[0] == '\0'){	
+									printf("Lista de empresas vazia\n");
+									i=tamanhoEmpresa;								
+								}
+								
+								printf("aqui");
+								if((strcmp(empresas[i].nome,empresaConsulta))==0){
+									printf("Empresa encontrada\n");
+									printf("Dados da Empresa\n");
+									printf("|Nome........!Contacto.........|Tipo..............|\n");
+									printf("%s............%s..............%d................\n",empresas[i].nome,empresas[i].contacto,empresas[i].tipo);
+									i=tamanhoEmpresa;
+										
+								
+								}
+							}
+							break;			
+						case 4:
+							//devo listar os funcionÃ£rios no momento da ediÃ§Ã£o para pooder ser escolhido o id do funcionï¿½rio para o edit
+							printf("qual empresa deseja  editar?");
+							printf("listando empresas\n");
+							printf("Id..........|Nome..........|Contacto...........|Tipo...........\n");
+							for(i=0;i<tamanhoEmpresa;i++){
+								printf("%d|%s|%s|%d\n",i,empresas[i].nome,empresas[i].contacto,empresas[i].tipo);
+							}
+								while(encontradoEmpresa==0){
+								scanf("%d",&empresaId);
+
+								if(empresas[empresaId].nome[0] == '\0'){									
+									encontradoEmpresa=0;
+
+								}
+								else{
+									encontradoEmpresa=1;
+								}	
+							}
+							printf("qual campo deseja editar?:");
+							scanf("%d",&escolhaCampoEmpresa);
+							while(escolhaCampoEmpresa==0 || escolhaCampoEmpresa>3){
+								scanf("%d",&escolhaCampoEmpresa);
+							}
+							switch(escolhaCampoEmpresa){
+								case 1:
+									printf("Digite o novo nome da empresa\n");
+									fflush(stdin);
+									gets(empresas[empresaId].nome);
+									break;
+								case 2:
+									printf("Digite o novo contacto da empresa\n");
+									fflush(stdin);
+									gets(empresas[empresaId].contacto);
+										break;
+								case 3:
+									printf("Digite o novo tipo da empresa (1)Fornecedor(2)Fabricante(3)Reciclagem(4)Agencia:\n");
+									while(escolhaTipoEmpresa==0 || escolhaTipoEmpresa>4){
+										scanf("%d",&escolhaTipoEmpresa);
+										if(escolhaTipoEmpresa==0 || escolhaTipoEmpresa>4){
+											printf("opcao digitada incorreta\nDigite outra opÃ§Ã£o correta");
+										}
+										else{
+											switch(escolhaTipoEmpresa){
+												case 1:
+													empresas[empresaId].tipo=FORNECEDOR;
+													break;
+												case 2:
+													empresas[empresaId].tipo=FABRICANTE;
+													break;
+												case 3:
+													empresas[empresaId].tipo=RECICLAGEM;
+													break;
+												case 4:
+													empresas[empresaId].tipo=AGENCIA;
+													break;
+												
+											}
+										}
+									}
+									escolhaTipoEmpresa=0;
+									empresaId=0;
+									break;
+								
+							}
+						
+						break;	
+						case 5:
+							printf("qual empresa deseja excluir");
+								printf("listando empresas\n");
+							printf("Id..........|Nome..........|Contacto...........|Tipo...........\n");
+							for(i=0;i<tamanhoEmpresa;i++){
+								printf("%d|%s|%s|%d\n",i,empresas[i].nome,empresas[i].contacto,empresas[i].tipo);
+							}
+								while(encontradoEmpresa==0){
+								scanf("%d",&empresaId);
+
+								if(empresas[empresaId].nome[0] == '\0'){									
+									encontradoEmpresa=0;
+
+								}
+								else{
+									encontradoEmpresa=1;
+								}	
+							}
+							for(int i=empresaId;i<tamanhoEmpresa-1;i++){
+								empresas[i]=empresas[i+1];
+							}
+							empresas[tamanhoEmpresa-1].nome[0] = '\0';
+							empresaId=0;
+							encontradoEmpresa=0;	
+
+							break;
+				case 6:
 					n3=0;
 					break;
 				
